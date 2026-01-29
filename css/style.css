@@ -19,7 +19,7 @@ nav {
 .logo {
     font-size: 1.5rem;
     font-weight: bold;
-    color: #ff6b6b;
+    color: #3d0099;
 }
 
 nav ul {
@@ -42,7 +42,7 @@ nav a {
 }
 
 button {
-    background: #ff6b6b;
+    background: #3d0099;
     color: white;
     border: none;
     padding: 1rem 2rem;
