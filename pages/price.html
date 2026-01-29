@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тарифы - Коллаб Хостинг</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .servers-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .servers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .server-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+            border: 3px solid transparent;
+        }
+        
+        .server-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .server-card.basic {
+            border-color: #95a5a6;
+        }
+        
+        .server-card.pro {
+            border-color: #3498db;
+        }
+        
+        .server-card.business {
+            border-color: #9b59b6;
+        }
+        
+        .server-card.power {
+            border-color: #e74c3c;
+        }
+        
+        .server-header {
+            padding: 1.5rem;
+            text-align: center;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        
+        .basic .server-header {
+            background: linear-gradient(45deg, #95a5a6, #7f8c8d);
+        }
+        
+        .pro .server-header {
+            background: linear-gradient(45deg, #3498db, #2980b9);
+        }
+        
+        .business .server-header {
+            background: linear-gradient(45deg, #9b59b6, #8e44ad);
+        }
+        
+        .power .server-header {
+            background: linear-gradient(45deg, #e74c3c, #c0392b);
+        }
+        
+        .server-avatar {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1rem;
+            font-size: 3rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .server-info {
+            padding: 1.5rem;
+        }
+        
+        .server-name {
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+            text-align: center;
+        }
+        
+        .server-tier {
+            color: #e74c3c;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        
+        .server-specs {
+            margin: 1.5rem 0;
+            font-size: 0.95rem;
+        }
+        
+        .spec-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #ecf0f1;
+        }
+        
+        .spec-value {
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        
+        .server-price {
+            text-align: center;
+            font-size: 2rem;
+            font-weight: bold;
+            margin: 1.5rem 0;
+            color: #2c3e50;
+        }
+        
+        .price-period {
+            font-size: 1rem;
+            color: #7f8c8d;
+        }
+        
+        .btn-order {
+            background: #2ecc71;
+            color: white;
+            border: none;
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 1.1rem;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+        
+        .btn-order:hover {
+            background: #27ae60;
+        }
+        
+        .popular-tag {
+            position: absolute;
+            top: 50px;
+            right: -40px;
+            background: #f1c40f;
+            color: #2c3e50;
+            padding: 0.3rem 3rem;
+            transform: rotate(45deg);
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+        
+        .server-card.popular {
+            position: relative;
+            overflow: visible;
+        }
+        
+        .comparison {
+            background: #ecf0f1;
+            padding: 2rem;
+            border-radius: 10px;
+            margin-top: 3rem;
+        }
+        
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }
+        
+        .comparison-table th, .comparison-table td {
+            padding: 1rem;
+            text-align: center;
+            border: 1px solid #bdc3c7;
+        }
+        
+        .comparison-table th {
+            background: #2c3e50;
+            color: white;
+        }
+        
+        .comparison-table tr:nth-child(even) {
+            background: white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>КОЛЛАБ ХОСТИНГ</h1>
+        <nav>
+            <a href="../index.html">Главная</a>
+            <a href="prices.html">Услуги</a>
+            <a href="contacts.html">Контакты</a>
+        </nav>
+    </header>
+    
+    <main class="servers-container">
+        <h2>Выберите своего хостинг-зверя</h2>
+        <p>Каждый сервер назван в честь животного с уникальными характеристиками, подходящими для разных задач.</p>
+        
+        <div class="servers-grid">
+            <!-- Сервер 1 - Овца -->
+            <div class="server-card basic">
+                <div class="server-header">
+                    <div class="server-avatar">🐑</div>
+                    <div class="server-name">ОВЦА</div>
+                </div>
+                <div class="server-info">
+                    <div class="server-tier">НАЧАЛЬНЫЙ УРОВЕНЬ</div>
+                    <p>Идеален для стартапов, блогов и небольших сайтов-визиток.</p>
+                    
+                    <div class="server-specs">
+                        <div class="spec-item">
+                            <span>CPU:</span>
+                            <span class="spec-value">2 ядра</span>
+                        </div>
+                        <div class="spec-item">
+                            <span>RAM:</span>
+                            <span class="spec-value">2 ГБ</span>
+                        </div>
+                        <div class="spec-item">
+                            <span>SSD:</span>
+                            <span class="spec-value">20 ГБ NVMe</span>
+                        </div>
+                        <div class="spec-item">
+                            <span>Трафик:</span>
+                            <span class="spec-value">Безлимитный</span>
+                        </div>
+                        <div class="spec-item">
+                            <span>Бэкапы:</span>
+                            <span class="spec-value">Раз в неделю</span>
+                        </div>
+                    </div>
+                    
+                    <div class="server-price">
+                        499 ₽<span class="price-period">/месяц</span>
+                    </div>
+                    <button class="btn-order">Выбрать тариф</button>
+                </div>
+            </div>
+            
+            <!-- Сервер 2 - Волк -->
+            <div class="server-card pro popular">
+                <div class="popular-tag">ПОПУЛЯРНО</div>
+                <div class="server-header">
+                    <div class="server-avatar">🐺</div>
+                    <div class="server-name">ВОЛК</div>
+                </div>
+                <div class="server-info">
+                    <div class="server-tier">ПРОФЕССИОНАЛЬНЫЙ</div>
+                    <p>Для средних проектов, интернет-магазинов и корпоративных сайтов.</p>
+                    
+                    <div class="server-specs">
+                        <div class="spec-item">
+                            <span>CPU:</span>
+                            <span class="spec-value">4 ядра</span>
+                        </div>
+                        <div class="spec-item">
+                            <span>RAM:</span>
+                            <span class="spec-value">8 ГБ</span>
+                        </div>
+                        <div class="spec-item">
+                            <span>SSD:</span>
+                            <span class="spec-value">100 ГБ NVMe</span>
+                        </div>
+                        <div class="spec-item">
+                            <span>Трафик:</span>
+                            <span class="spec-value">Безлимитный</span>
+                        </div>
+                        <div class="spec-item">
+                            <span>Бэкапы:</span>
+                            <span class="spec-value">Ежедневные</span>
+                        </div>
+                    </div>
+                    
+                    <div class="server-price">
+                        1 999 ₽<span class="price-period">/месяц</span>
+                    </div>
+                    <button class="btn-order">Выбрать тариф</button>
+                </div>
+            </div>
+            
+            <!-- Сервер 3 - Медведь -->
+            <div class="server-card business">
+                <div class="server-header">
+                    <div class="server-avatar">🐻</div>
+                    <div class="server-name">МЕДВЕДЬ</div>
+                </div>
+                <div class="server-info">
+                    <div class="server-tier">БИЗНЕС КЛАСС</div>
+                    <p>Для высоконагруженных проектов, CRM-систем и игровых серверов.</p>
+                    
+                    <div class="server-specs">
+                        <div class="spec-item">
+                            <span>CPU:</span>
+                            <span class="spec-value">8 ядер</span>
+                        </div>
+                        <div class="spec-item">
+                            <span>RAM:</span>
+                            <span class="spec-value">16 ГБ</span>
+                        </div>
+                        <div class="spec-item">
+                            <span>SSD:</span>
+                            <span class="spec-value">200 ГБ NVMe</span>
+                        </div>
+                        <div class="spec-item">
+                            <span>Трафик:</span>
+                            <span class="spec-value">Безлимитный</span>
+                        </div>
+                        <div class="spec-item">
+                            <span>Бэкапы:</span>
+                            <span class="spec-value">Каждые 6 часов</span>
+                        </div>
+                    </div>
+                    
+                    <div class="server-price">
+                        3 999 ₽<span class="price-period">/месяц</span>
+                    </div>
+                    <button class="btn-order">Выбрать тариф</button>
+                </div>
+            </div>
+            
+            <!-- Сервер 4 - Акула -->
+            <div class="server-card power">
+                <div class="server-header">
+                    <div class="server-avatar">🦈</div>
+                    <div class="server-name">АКУЛА</div>
+                </div>
+                <div class="server-info">
+                    <div class="server-tier">МОЩНЫЙ ХОСТИНГ</div>
+                    <p>Для крупных предприятий, стриминговых платформ и высоконагруженных API.</p>
+                    
+                    <div class="server-specs">
+                        <div class="spec-item">
+                            <span>CPU:</span>
+                            <span class="spec-value">16 ядер</span>
+                        </div>
+                        <div class="spec-item">
+                            <span>RAM:</span>
+                            <span class="spec-value">32 ГБ</span>
+                        </div>
+                        <div class="spec-item">
+                            <span>SSD:</span>
+                            <span class="spec-value">500 ГБ NVMe</span>
+                        </div>
+                        <div class="spec-item">
+                            <span>Трафик:</span>
+                            <span class="spec-value">Безлимитный</span>
+                        </div>
+                        <div class="spec-item">
+                            <span>Бэкапы:</span>
+                            <span class="spec-value">Ежечасные</span>
+                        </div>
+                    </div>
+                    
+                    <div class="server-price">
+                        7 999 ₽<span class="price-period">/месяц</span>
+                    </div>
+                    <button class="btn-order">Выбрать тариф</button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="comparison">
+            <h3>Сравнение серверов</h3>
+            <p>Не уверены в выборе? Сравните характеристики всех наших тарифов:</p>
+            
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Характеристика</th>
+                        <th>🐑 Овца</th>
+                        <th>🐺 Волк</th>
+                        <th>🐻 Медведь</th>
+                        <th>🦈 Акула</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Процессор</strong></td>
+                        <td>2 ядра</td>
+                        <td>4 ядра</td>
+                        <td>8 ядер</td>
+                        <td>16 ядер</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Память</strong></td>
+                        <td>2 ГБ</td>
+                        <td>8 ГБ</td>
+                        <td>16 ГБ</td>
+                        <td>32 ГБ</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Диск</strong></td>
+                        <td>20 ГБ NVMe</td>
+                        <td>100 ГБ NVMe</td>
+                        <td>200 ГБ NVMe</td>
+                        <td>500 ГБ NVMe</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Бэкапы</strong></td>
+                        <td>Раз в неделю</td>
+                        <td>Ежедневно</td>
+                        <td>Каждые 6 часов</td>
+                        <td>Ежечасно</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Поддержка</strong></td>
+                        <td>24/7 чат</td>
+                        <td>24/7 чат + email</td>
+                        <td>Приоритетная поддержка</td>
+                        <td>Персональный менеджер</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Подходит для</strong></td>
+                        <td>Блогов, сайтов-визиток</td>
+                        <td>Магазинов, корпоративных сайтов</td>
+                        <td>Игровых серверов, CRM</td>
+                        <td>Стриминга, Big Data</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <div style="text-align: center; margin-top: 2rem;">
+                <p>Нужен кастомный сервер? Мы соберём "гибридного зверя" специально под ваши задачи!</p>
+                <button style="background: #3d0099; color: white; padding: 1rem 2rem; border: none; border-radius: 8px; cursor: pointer;">
+                    Собрать свой сервер
+                </button>
+            </div>
+        </div>
+    </main>
+    
+    <footer>
+        <p>© 2026 Хостинг-сервис "Коллаб"</p>
+		<p>Сайт создан участником Тюкин"</p>
+    </footer>
+</body>
+</html>
