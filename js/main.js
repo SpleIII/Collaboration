@@ -3,6 +3,9 @@
 // Эффект курсора
 const cursorGlow = document.getElementById('cursorGlow');
 
+// Убеждаемся что курсор скрыт на всем сайте
+document.body.style.cursor = 'none';
+
 document.addEventListener('mousemove', (e) => {
     cursorGlow.style.left = e.clientX + 'px';
     cursorGlow.style.top = e.clientY + 'px';
@@ -15,6 +18,22 @@ document.addEventListener('mouseleave', () => {
 
 document.addEventListener('mouseenter', () => {
     cursorGlow.style.opacity = '1';
+});
+
+// Эффект при наведении на кликабельные элементы
+const clickableElements = document.querySelectorAll('a, button, .theme-toggle');
+
+clickableElements.forEach(element => {
+    // Устанавливаем cursor: none для всех кликабельных элементов
+    element.style.cursor = 'none';
+    
+    element.addEventListener('mouseenter', () => {
+        cursorGlow.classList.add('hover');
+    });
+    
+    element.addEventListener('mouseleave', () => {
+        cursorGlow.classList.remove('hover');
+    });
 });
 
 // Переключение темы
@@ -46,8 +65,7 @@ function updateThemeIcons(theme) {
     }
 }
 
-// Эффект фона, зависящий от темы (уже определен в CSS)
-// Этот код добавляет дополнительные стили для гарантии
+// Эффект фона, зависящий от темы
 const style = document.createElement('style');
 style.textContent = `
     [data-theme="light"] {
@@ -59,3 +77,13 @@ style.textContent = `
     }
 `;
 document.head.appendChild(style);
+
+// Отключаем кастомный курсор на мобильных устройствах
+if (window.innerWidth <= 768) {
+    cursorGlow.style.display = 'none';
+    document.body.style.cursor = 'auto';
+    
+    clickableElements.forEach(element => {
+        element.style.cursor = 'auto';
+    });
+}
