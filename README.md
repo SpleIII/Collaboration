@@ -2,7 +2,7 @@
 
 Проект созданный коллективной работой командой "Тандем"
 
-[Ссылка на сайт]([https://yandex.ru](https://spleiii.github.io/Collaboration/))
+[Ссылка на сайт](https://spleiii.github.io/Collaboration/)
 
 ## Участники команды:
 - Артём Т. (тимлид)
